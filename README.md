@@ -1,43 +1,57 @@
-[README.4.md](https://github.com/user-attachments/files/29436714/README.4.md)
+[README (5).md](https://github.com/user-attachments/files/29436723/README.5.md)
 
-# ⚔️ The Empire That Never Forced Faith
+```
+        ╔═══════════════════════════════════════════════╗
+        ║   ⚔  THE EMPIRE THAT NEVER FORCED FAITH  ⚔   ║
+        ║        al-Andalus, 711 CE — 1492 CE            ║
+        ╚═══════════════════════════════════════════════╝
+```
 
-### You were taught Islam spread by the sword. The math says otherwise — and the math doesn't care about your textbook.
+### You were taught Islam spread by the sword.
+### The math studied it for three centuries and disagrees.
 
-`Independent Research` · `711–1492 CE` · `16 Sources` · `Zero Apologies`
+`Independent Research` · `16 Sources` · `1 Treaty That Changes Everything` · `Zero Apologies`
 
-**Read it live →** [empire-never-forced-faith.html](https://elmashaleh.github.io/empire-never-forced-faith.html)
+**🚪 Walk in →** [elmashaleh.github.io/empire-never-forced-faith](https://elmashaleh.github.io/empire-never-forced-faith/)
 
 ---
 
-## 🔥 The Myth vs. The Math
+## 🏛️ What you'll find inside
 
-| What You Were Told | What Actually Happened |
+> *Scroll past the gate, and the empire un-writes everything you were told about it — one room at a time.*
+
+| Room | What happens |
 |---|---|
-| "Conquered by the sword" | 7,000 men. **Treaties**, not massacres. Tudmīr, 713 CE. |
-| "Forced mass conversion" | **300+ years** before Muslims were even a majority. Coercion doesn't take three centuries. |
-| "Religious erasure" | Churches standing. Bishops in their seats. Rabbinical courts running. For generations. |
-| "A backward, violent regime" | **400,000 books** in one library while Europe's biggest held a few hundred. |
-
-**If this was forced, someone forgot to force it for 300 years.**
-
----
-
-## The Case, Stripped Down
-
-1. **711** — the conquest was a negotiation with a sword in the room, not the other way around
-2. **Dhimma** — a legal contract with obligations on *both* sides, not a mercy
-3. **The Conversion Curve** — Bulliet's data is the one thing the "forced Islam" narrative cannot survive
-4. **Toledo** — the science al-Andalus built is the science that woke up Europe
-
-This isn't a feel-good diversity essay. It's a paper built on a treaty, a tax record, and three centuries of names in biographical dictionaries. Read it, then argue with the data — not with me.
-
-## Files
-
-```
-empire-never-forced-faith.html   ← the paper. one file. no excuses.
-```
+| 🕍 **The Gate** | An ink-drawn arch breathes. A seal stamps itself: *713*. |
+| 📜 **The Glance** | Four numbers that quietly demolish a thousand-year myth. |
+| ⚖️ **The Contract** | Tax flows one way, protection flows the other. Neither side gets to cheat. |
+| 🗺️ **The Map** | *Hover a city.* Toledo, Córdoba, Seville, Tudmīr — each one has a secret the textbooks skipped. |
+| 📈 **The Curve** | Watch 300 years of "gradual" draw itself across the screen, live. |
+| 🔥 **The Verdict** | A table that puts the myth on trial and lets the record cross-examine it. |
+| 📚 **The Stacks** | 16 sources. No vibes, no TikTok history — paper trail only. |
 
 ---
 
-*Every claim sourced. Every source listed. Come prepared.*
+## 🎯 The whole argument, for the impatient
+
+```
+  7,000 soldiers  ──▶  treaties, not massacres
+  300+ years      ──▶  too slow for coercion to explain
+  400,000 books   ──▶  while Europe's biggest library held a few hundred
+  ─────────────────────────────────────────────
+  = an empire that never needed the sword to keep the faith
+```
+
+## 🧰 Built with
+
+Zero frameworks. Zero trackers. Zero stock photos pretending to be history.
+Just HTML, CSS, and vanilla JS — pretending to be a museum.
+
+```
+index.html                        ← the whole experience, one file
+empire-never-forced-faith.pdf     ← the full academic paper, footnotes and all
+```
+
+---
+
+*Every claim sourced. Every source listed. Come prepared — or come curious. Both work.*
