@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Empire That Never Forced Faith</title>
+<meta name="description" content="Eight centuries of Muslim rule in al-Andalus. Not one forced conversion needed to survive them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#faf9f5; --paper-deep:#f1ebdd; --ink:#211b16; --ink-soft:#6b6258;
+    --maroon:#5b0a16; --maroon-deep:#2e050b; --gold:#b6862c; --rule:#e3dcc8; --max:900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Inter',Helvetica,Arial,sans-serif;
+    font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 26px;}
+  .narrow{max-width:760px; margin-left:auto; margin-right:auto;}
+  .icon{color:var(--maroon); width:26px; height:26px; flex:none;}
+  .eyebrow{font-family:'Inter',sans-serif; font-weight:600; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-soft);}
+
+  #progress{position:fixed; top:0; left:0; height:3px; width:0%; background:var(--gold); z-index:60; transition:width .1s linear;}
+
+  .reveal{opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  .reveal2.in{transition-delay:.12s;} .reveal3.in{transition-delay:.24s;} .reveal4.in{transition-delay:.36s;}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
+
+  /* ---------- nav ---------- */
+  nav.top{position:sticky; top:0; z-index:55; background:var(--maroon-deep); padding:14px 0;
+    display:flex; align-items:center; box-shadow:0 1px 0 rgba(255,255,255,.08);}
+  nav.top .navwrap{max-width:var(--max); margin:0 auto; padding:0 26px; display:flex; align-items:center; justify-content:space-between; width:100%;}
+  .brand{display:flex; align-items:center; gap:9px; color:#f1ebdd; font-family:'Lora',serif; font-weight:600; font-size:15px;}
+  .brand svg{width:20px; height:20px; color:var(--gold);}
+  .navlinks{display:flex; gap:26px; list-style:none; margin:0; padding:0;}
+  .navlinks a{color:#cdb9a3; text-decoration:none; font-size:13px; font-weight:500; letter-spacing:.02em;}
+  .navlinks a:hover{color:#f1ebdd;}
+  .nav-btn{background:var(--gold); color:var(--maroon-deep); font-weight:700; font-size:12.5px; padding:9px 16px; border-radius:2px; text-decoration:none;}
+  @media (max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  header.hero{padding:60px 0 0; text-align:center; position:relative; overflow:hidden; background:var(--maroon-deep);}
+  .arch-wrap{position:relative; width:220px; height:200px; margin:0 auto;}
+  .arch-wrap svg{width:100%; height:100%;}
+  .hero-inner{position:relative; z-index:2; padding-bottom:40px;}
+  .hero .eyebrow{color:#cdb9a3;}
+  h1.title{font-family:'Lora', Georgia, serif; font-weight:700; font-size:clamp(32px, 6.4vw, 52px);
+    line-height:1.1; color:#f7eee0; margin:16px auto 14px; max-width:760px; letter-spacing:-0.01em;
+    clip-path:inset(0 100% 0 0); animation:inkReveal 1.4s cubic-bezier(.65,0,.35,1) .5s forwards;}
+  @keyframes inkReveal{to{clip-path:inset(0 0% 0 0);}}
+  @media (prefers-reduced-motion: reduce){ h1.title{animation:none; clip-path:none;} }
+
+  .ambient{position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1;}
+  .dust{position:absolute; border-radius:50%; background:radial-gradient(circle, rgba(182,134,44,.5), transparent 70%); opacity:.5; filter:blur(1px); animation:drift linear infinite;}
+  @keyframes drift{0%{transform:translate(0,0);} 50%{transform:translate(14px,-22px);} 100%{transform:translate(0,0);}}
+  @media (prefers-reduced-motion: reduce){ .dust{animation:none;} }
+  .thesis{font-family:'Lora', serif; font-style:italic; font-size:18px; color:#cdb9a3; max-width:480px; margin:0 auto 24px;}
+  .byline{font-size:12.5px; color:#a89683; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+  .byline strong{color:#f1ebdd;}
+
+  /* ---------- abstract + glance ---------- */
+  .ag-section{padding:54px 0; background:var(--paper);}
+  .ag-grid{display:grid; grid-template-columns:1.4fr 1fr; gap:40px; align-items:start;}
+  @media (max-width:760px){ .ag-grid{grid-template-columns:1fr;} }
+  .ag-head{font-family:'Inter',sans-serif; font-weight:700; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--maroon); margin-bottom:14px; display:flex; align-items:center; gap:10px;}
+  .ag-head .ln{width:30px; height:2px; background:var(--maroon);}
+  .abstract-text{font-family:'Lora',serif; font-style:italic; color:var(--ink-soft); font-size:16.5px; border-left:3px solid var(--maroon); padding-left:20px;}
+  .kw{margin-top:16px; padding-top:14px; border-top:1px solid var(--rule); font-size:13px; color:var(--ink-soft); font-style:normal;}
+  .glance{display:flex; flex-direction:column; gap:12px;}
+  .glance-card{display:flex; gap:14px; align-items:flex-start; background:var(--paper-deep); padding:14px 16px; border-left:3px solid var(--gold);}
+  .glance-card .icon{width:22px; height:22px; margin-top:2px;}
+  .glance-card .gt{font-family:'Lora',serif; font-weight:700; color:var(--ink); font-size:15px;}
+  .glance-card .gs{font-size:12.5px; color:var(--ink-soft); margin-top:2px;}
+
+  /* ---------- intro band ---------- */
+  .intro-band{background:var(--maroon-deep); padding:56px 0; color:#f1ebdd;}
+  .intro-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;}
+  @media (max-width:760px){ .intro-grid{grid-template-columns:1fr;} }
+  .intro-grid blockquote{font-family:'Lora',serif; font-style:italic; font-size:clamp(19px,2.6vw,23px); line-height:1.5; margin:0; color:#f7eee0; border-left:3px solid var(--gold); padding-left:20px;}
+  .intro-grid .support p{color:#cdb9a3; font-size:15.5px; margin:0 0 14px;}
+
+  /* ---------- milestone/donut section ---------- */
+  .ms-section{padding:54px 0; background:var(--paper-deep);}
+  .ms-grid{display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center;}
+  @media (max-width:760px){ .ms-grid{grid-template-columns:1fr; text-align:center;} }
+  .ms-h{font-family:'Lora',serif; font-weight:600; font-size:clamp(19px,2.6vw,23px); color:var(--ink); margin-bottom:18px;}
+  .ms-line{display:flex; align-items:center; gap:0; margin-bottom:8px;}
+  .ms-dot{width:12px; height:12px; border-radius:50%; background:var(--maroon); flex:none;}
+  .ms-seg{flex:1; height:2px; background:var(--rule);}
+  .ms-labels{display:flex; justify-content:space-between; font-size:12px; color:var(--ink-soft); margin-bottom:22px;}
+  .ms-labels strong{display:block; color:var(--ink); font-family:'Lora',serif; font-size:14px;}
+  .donut-wrap{display:flex; justify-content:center;}
+  .donut-ring{stroke-dasharray:301 301; stroke-dashoffset:301; transition:stroke-dashoffset 1.6s cubic-bezier(.2,.8,.2,1);}
+  .donut-ring.in{stroke-dashoffset:113;}
+  .donut-num{font-family:'Lora',serif; font-weight:700; fill:var(--maroon); font-size:30px;}
+  .donut-lbl{font-family:'Inter',sans-serif; font-size:9px; letter-spacing:.08em; fill:var(--ink-soft);}
+
+  /* ---------- section shell ---------- */
+  .section{padding:54px 0;}
+  .sec-head{display:flex; align-items:center; gap:14px; margin-bottom:18px; justify-content:center;}
+  h2.h{font-family:'Lora', serif; font-weight:600; color:var(--ink); font-size:clamp(22px, 3.6vw, 28px); margin:0; text-align:center;}
+  .section p.body{color:var(--ink-soft); font-size:16.5px; max-width:640px; margin:0 auto 18px;}
+  .section p.body strong{color:var(--ink);}
+
+  /* conquest: map + callout */
+  .conquest-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:30px 0; align-items:stretch;}
+  @media (max-width:760px){ .conquest-grid{grid-template-columns:1fr;} }
+  .map-card{background:var(--paper-deep); border:1px solid var(--rule); padding:18px; display:flex; align-items:center; justify-content:center; position:relative;}
+  .map-card svg{width:100%; max-width:280px; height:auto;}
+  .city-dot{cursor:pointer;}
+  .city-dot circle{transition:r .2s ease;}
+  .city-dot:hover circle{r:6;}
+  .city-tip{position:absolute; bottom:10px; left:10px; right:10px; background:var(--maroon-deep); color:#f1ebdd;
+    font-size:12.5px; padding:8px 12px; border-radius:2px; opacity:0; transform:translateY(6px);
+    transition:opacity .2s ease, transform .2s ease; pointer-events:none;}
+  .city-tip.show{opacity:1; transform:translateY(0);}
+  .callout-dark{background:var(--maroon-deep); color:#f1ebdd; padding:22px 24px; font-size:15px; line-height:1.6; display:flex; align-items:center;}
+  .callout-dark strong{color:#f7eee0;}
+
+  .chip-row{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:24px;}
+  .chip{background:var(--paper); text-align:center; padding:16px 8px;}
+  .chip .cv{font-family:'Lora',serif; font-weight:700; color:var(--maroon); font-size:clamp(18px,3vw,22px); display:block;}
+  .chip .cl{font-size:10.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.04em; margin-top:4px; display:block;}
+  @media (max-width:560px){ .chip-row{grid-template-columns:repeat(2,1fr);} }
+
+  /* treaty note box */
+  .treaty-box{display:flex; gap:14px; align-items:flex-start; background:var(--paper-deep); border:1px dashed var(--gold); padding:16px 18px; margin-top:20px;}
+  .treaty-box .icon{margin-top:2px;}
+  .treaty-box .tt{font-family:'Lora',serif; font-weight:700; color:var(--maroon); font-size:14.5px;}
+  .treaty-box .ts{font-size:13px; color:var(--ink-soft); margin-top:2px;}
+
+  /* dhimma diagram */
+  .diagram{display:flex; align-items:center; justify-content:center; gap:14px; margin:30px 0; flex-wrap:wrap;}
+  .diagram .box{background:var(--paper-deep); border-top:3px solid var(--maroon); padding:18px 22px; text-align:center; min-width:160px;}
+  .diagram .box .t{display:block; font-family:'Lora',serif; font-weight:700; color:var(--maroon); font-size:15px;}
+  .diagram .box .s{display:block; font-size:12.5px; color:var(--ink-soft); margin-top:4px;}
+  .diagram .arrow{font-size:22px; color:var(--gold);}
+  @media (max-width:480px){ .diagram{flex-direction:column;} .diagram .box{width:100%; max-width:260px;} .diagram .arrow{transform:rotate(90deg);} }
+
+  /* curve chart */
+  .chart-wrap{margin:28px auto; max-width:560px;}
+  .chart-wrap svg{width:100%; height:auto;}
+  .curve-path{stroke-dasharray:600; stroke-dashoffset:600; transition:stroke-dashoffset 1.6s ease;}
+  .curve-path.in{stroke-dashoffset:0;}
+  .chart-caption{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:8px; font-style:italic;}
+
+  /* bar chart */
+  .bars{display:flex; align-items:flex-end; justify-content:center; gap:50px; height:160px; margin:34px 0 10px;}
+  .bar-col{text-align:center; width:90px;}
+  .bar{width:100%; background:var(--maroon); height:0; transition:height 1.2s cubic-bezier(.2,.8,.2,1); margin:0 auto;}
+  .bar-col .bv{font-family:'Lora',serif; font-weight:700; color:var(--maroon); margin-top:8px; display:block;}
+  .bar-col .bl{font-size:11.5px; color:var(--ink-soft); margin-top:2px; display:block;}
+
+  /* myth vs record */
+  table.mvr{width:100%; border-collapse:collapse; font-size:14.5px;}
+  table.mvr th{font-family:'Inter',sans-serif; font-size:11px; letter-spacing:.06em; text-transform:uppercase; text-align:left; padding:10px 14px; color:#f1ebdd; background:var(--maroon);}
+  table.mvr td{padding:14px; border-bottom:1px solid var(--rule); vertical-align:top;}
+  table.mvr td:first-child{color:var(--ink-soft); font-style:italic; font-family:'Lora',serif; width:34%;}
+  table.mvr td:last-child{color:var(--ink); font-weight:500;}
+  table.mvr tr:nth-child(even) td{background:var(--paper-deep);}
+
+  /* timeline */
+  .timeline{position:relative; padding-left:40px;}
+  .timeline::before{content:''; position:absolute; left:13px; top:6px; bottom:6px; width:2px; background:var(--rule);}
+  .tl-item{position:relative; padding-bottom:30px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-icon{position:absolute; left:-40px; top:-2px; width:28px; height:28px; background:var(--paper); border:2px solid var(--maroon); border-radius:50%; display:flex; align-items:center; justify-content:center;}
+  .tl-icon svg{width:14px; height:14px; color:var(--maroon);}
+  .tl-year{font-family:'Lora', serif; font-weight:700; color:var(--maroon); font-size:16px; margin-right:8px;}
+  .tl-text{color:var(--ink-soft); font-size:15px;}
+  .tl-text strong{color:var(--ink); font-weight:600;}
+
+  /* pull quote band */
+  .pq-band{background:var(--maroon-deep); padding:60px 0; text-align:center;}
+  .pq-band .rule{width:50px; height:2px; background:var(--gold); margin:0 auto 22px;}
+  .pq-band p{font-family:'Lora',serif; font-style:italic; color:#f1ebdd; font-size:clamp(20px,3.4vw,28px); max-width:600px; margin:0 auto; line-height:1.4;}
+
+  /* scholars */
+  .scholars{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+  .scholar{background:var(--paper-deep); padding:22px 16px; border-top:3px solid var(--maroon); transition:transform .25s ease, box-shadow .25s ease;}
+  .scholar:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(91,10,22,.12);}
+  .scholar .icon{margin-bottom:10px;}
+  .scholar h3{font-family:'Lora',serif; font-size:16px; margin:0 0 4px; color:var(--ink);}
+  .scholar .dom{font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--maroon); margin-bottom:8px; display:block;}
+  .scholar p{margin:0; font-size:13.5px; color:var(--ink-soft); line-height:1.5;}
+  @media (max-width:620px){ .scholars{grid-template-columns:1fr;} }
+
+  /* closing */
+  .closing{background:var(--maroon-deep); padding:60px 0; text-align:center;}
+  .closing p.big{font-family:'Lora',serif; font-style:italic; color:#f1ebdd; font-size:clamp(19px,3vw,24px); max-width:560px; margin:0 auto 28px; line-height:1.45;}
+  .btn{display:inline-block; background:var(--gold); color:var(--maroon-deep); font-weight:700; font-size:14px; padding:14px 28px; border-radius:2px; text-decoration:none; letter-spacing:.02em;}
+  .closing .fine{margin-top:16px; font-size:12px; color:#cdb9a3;}
+
+  /* sources */
+  .src-list{display:grid; grid-template-columns:1fr 1fr; gap:14px 28px; margin-top:24px;}
+  @media (max-width:640px){ .src-list{grid-template-columns:1fr;} }
+  .src-item{font-size:13px; color:var(--ink-soft); line-height:1.5; padding-left:14px; border-left:2px solid var(--rule);}
+  .src-item em{font-family:'Lora',serif; color:var(--ink);}
+
+  footer{padding:28px 0; text-align:center; font-size:12px; color:var(--ink-soft); background:var(--paper);}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav class="top">
+  <div class="navwrap">
+    <div class="brand">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.6 5.3 5.9.8-4.3 4.1 1 5.8L12 15l-5.2 2.8 1-5.8L3.5 8.1l5.9-.8L12 2Z"/></svg>
+      AL-ANDALUS
+    </div>
+    <ul class="navlinks">
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#conquest">Conquest</a></li>
+      <li><a href="#curve">Conversion</a></li>
+      <li><a href="#timeline">Timeline</a></li>
+      <li><a href="#science">Science</a></li>
+      <li><a href="#sources">Sources</a></li>
+    </ul>
+    <a class="nav-btn" href="empire-never-forced-faith.pdf" download>Download</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="ambient">
+    <div class="dust" style="width:120px; height:120px; top:10%; left:8%; animation-duration:9s;"></div>
+    <div class="dust" style="width:80px; height:80px; top:55%; left:78%; animation-duration:11s; animation-delay:1s;"></div>
+    <div class="dust" style="width:60px; height:60px; top:75%; left:20%; animation-duration:8s; animation-delay:2s;"></div>
+    <div class="dust" style="width:100px; height:100px; top:20%; left:65%; animation-duration:10s; animation-delay:.5s;"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="arch-wrap" id="archWrap">
+      <svg viewBox="0 0 160 150" fill="none">
+        <path d="M20,148 L20,86 C20,86 10,68 20,50 C32,30 48,18 80,18 C112,18 128,30 140,50 C150,68 140,86 140,86 L140,148"
+          stroke="#b6862c" stroke-width="2"/>
+        <path d="M34,148 L34,90 C34,90 26,72 34,56 C44,40 58,30 80,30 C102,30 116,40 126,56 C134,72 126,90 126,90 L126,148"
+          stroke="#7a4f1a" stroke-width="1" opacity=".55"/>
+        <path d="M80,18 L74,8 L80,2 L86,8 Z" stroke="#b6862c" stroke-width="1.4" fill="none"/>
+        <circle cx="80" cy="60" r="3" fill="#b6862c"/>
+      </svg>
+    </div>
+    <span class="eyebrow">Independent Research · al-Andalus, 711–1492</span>
+    <h1 class="title">The Empire That Never Forced Faith</h1>
+    <p class="thesis">If Islam was spread by the sword, someone forgot to tell the millions who never converted.</p>
+    <div class="byline"><strong>Motaz Elmashaleh</strong><span>·</span><span>The Hashemite University</span></div>
+  </div>
+</header>
+
+<section class="ag-section" id="abstract">
+  <div class="wrap ag-grid">
+    <div class="reveal">
+      <div class="ag-head"><span class="ln"></span>Abstract</div>
+      <p class="abstract-text">This paper examines two dimensions of Muslim rule in al-Andalus: the legal mechanisms that structured relations with conquered Christian and Jewish populations, and the scientific contributions later transmitted to Western Europe. The available record does not support the claim that Islamization in Iberia proceeded through systematic coercion — religious minorities kept legal protection and freedom of worship, and conversion unfolded gradually across more than three centuries.</p>
+      <div class="kw"><strong>Keywords —</strong> al-Andalus, dhimma, religious conversion, Islamic science, Toledo School of Translators</div>
+    </div>
+    <div class="glance reveal reveal2">
+      <div class="ag-head"><span class="ln"></span>At a Glance</div>
+      <div class="glance-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <div><div class="gt">Eight Centuries</div><div class="gs">Muslim presence in Iberia, 711–1492</div></div>
+      </div>
+      <div class="glance-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 17c4-1 6-9 9-9s4 6 9 7"/></svg>
+        <div><div class="gt">300+ Years</div><div class="gs">For Muslims to become a majority</div></div>
+      </div>
+      <div class="glance-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z"/></svg>
+        <div><div class="gt">Legal Protection</div><div class="gs">Guaranteed through the dhimma framework</div></div>
+      </div>
+      <div class="glance-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3"/></svg>
+        <div><div class="gt">Scientific Legacy</div><div class="gs">Transmitted to Europe via Toledo</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="intro-band">
+  <div class="wrap intro-grid">
+    <blockquote class="reveal">A force of seven thousand men crossed a strait, faced an empire, and within seven years controlled nearly an entire peninsula. For eight hundred years, that empire did not collapse, did not retreat, and did not need to force a single conversion to survive.</blockquote>
+    <div class="support reveal reveal2">
+      <p>If Islam was spread by the sword, someone forgot to tell the millions of Christians and Jews who lived, worshipped, and prospered under Muslim rule for centuries without ever becoming Muslim.</p>
+      <p>The conventional narrative is simple and convenient: conquest by the sword, rule by coercion, faiths erased. The record kept across thirteen centuries tells a different story.</p>
+    </div>
+  </div>
+</div>
+
+<section class="ms-section">
+  <div class="wrap ms-grid">
+    <div class="reveal">
+      <div class="ms-h">Islamization was not instant. It was gradual.</div>
+      <div class="ms-line">
+        <div class="ms-dot"></div><div class="ms-seg"></div><div class="ms-dot"></div><div class="ms-seg"></div><div class="ms-dot" style="background:var(--gold);"></div>
+      </div>
+      <div class="ms-labels">
+        <div><strong>711 CE</strong>The Conquest</div>
+        <div><strong>300+ Yrs</strong>Gradual Conversion</div>
+        <div><strong>Majority</strong>Reached at Last</div>
+      </div>
+      <p style="color:var(--ink-soft); font-size:15.5px;">By the most rigorous quantitative estimates available, it took over three hundred years for Muslims to become a majority in al-Andalus — far too slow a timeline for any policy of coercion to explain.</p>
+    </div>
+    <div class="donut-wrap reveal reveal2">
+      <svg width="220" height="220" viewBox="0 0 220 220">
+        <circle cx="110" cy="110" r="96" fill="none" stroke="#e3dcc8" stroke-width="14"/>
+        <circle class="donut-ring" cx="110" cy="110" r="96" fill="none" stroke="#5b0a16" stroke-width="14" stroke-linecap="round" transform="rotate(-90 110 110)"/>
+        <text x="110" y="104" text-anchor="middle" class="donut-num">300+</text>
+        <text x="110" y="128" text-anchor="middle" class="donut-lbl">YEARS TO MAJORITY</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section class="section reveal" id="conquest">
+    <div class="sec-head">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7 7M21 3l-7 7M5 19l5-5M19 19l-5-5"/><path d="M9 9l-1.5 1.5M15 9l1.5 1.5"/></svg>
+      <h2 class="h">The Conquest of 711</h2>
+    </div>
+    <p class="body" style="text-align:center;">In the spring of 711, Ṭāriq ibn Ziyād's force met the Visigothic king Roderic at Guadalete. Roderic died on the field — and the kingdom that had ruled Iberia for three centuries went with him. What followed wasn't a massacre. City after city fell to <strong>terms</strong>, not the sword.</p>
+
+    <div class="conquest-grid">
+      <div class="map-card">
+        <svg viewBox="0 0 260 220">
+          <path d="M40,30 C20,40 15,70 25,100 C15,130 25,165 55,180 C90,200 140,195 175,175 C210,160 230,130 220,95 C235,70 220,40 190,28 C150,10 80,12 40,30 Z"
+            fill="#e9dfc4" stroke="#c2b48c" stroke-width="1.5"/>
+          <g class="city-dot" data-tip="Toledo — retained a functioning Visigothic Christian nobility for generations.">
+            <circle cx="160" cy="60" r="4" fill="#5b0a16"/><text x="168" y="58" font-family="Inter" font-size="11" fill="#211b16">Toledo</text>
+          </g>
+          <g class="city-dot" data-tip="Córdoba — taken by force after resistance, then administrative absorption, not erasure.">
+            <circle cx="145" cy="115" r="4" fill="#5b0a16"/><text x="153" y="113" font-family="Inter" font-size="11" fill="#211b16">Córdoba</text>
+          </g>
+          <g class="city-dot" data-tip="Tudmīr (Murcia) — site of the 713 treaty: churches and faith kept, in exchange for tribute.">
+            <circle cx="190" cy="150" r="4" fill="#5b0a16"/><text x="198" y="148" font-family="Inter" font-size="11" fill="#211b16">Tudmīr</text>
+          </g>
+          <g class="city-dot" data-tip="Seville — one of many cities preserving local governance through capitulation, not conquest.">
+            <circle cx="75" cy="155" r="4" fill="#5b0a16"/><text x="38" y="172" font-family="Inter" font-size="11" fill="#211b16">Seville</text>
+          </g>
+        </svg>
+        <div class="city-tip" id="cityTip">Hover a city for what the record says</div>
+      </div>
+      <div class="callout-dark">
+        <p>City after city did not fall to massacre — they fell to terms. <strong>Capitulation agreements</strong> were signed across the peninsula, preserving local governance in exchange for tribute rather than conversion.</p>
+      </div>
+    </div>
+
+    <div class="treaty-box">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="5" y="4" width="14" height="16" rx="1"/><path d="M8 9h8M8 13h8"/></svg>
+      <div><div class="tt">The Treaty of Tudmīr (713)</div><div class="ts">Guaranteed Christians the right to keep their churches, their laws, and their faith, in exchange for tribute.</div></div>
+    </div>
+
+    <div class="chip-row">
+      <div class="chip"><span class="cv">7,000</span><span class="cl">Approx. Muslim Army</span></div>
+      <div class="chip"><span class="cv">3</span><span class="cl">Centuries, Visigothic Rule</span></div>
+      <div class="chip"><span class="cv">Hundreds</span><span class="cl">Of Agreements, Not Massacres</span></div>
+      <div class="chip"><span class="cv">Millions</span><span class="cl">Lived Without Forced Conversion</span></div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <div class="sec-head">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 7L6 19h12L12 7Z M5 11h2M17 11h2"/><circle cx="6" cy="15" r="2.4"/><circle cx="18" cy="15" r="2.4"/></svg>
+      <h2 class="h">The Dhimma System</h2>
+    </div>
+    <p class="body" style="text-align:center;">Christians and Jews were classified as <em>dhimmis</em> — protected people — under a legal contract centuries older than al-Andalus itself. It ran in both directions. A ruler who broke it was breaking his own state's law, not just behaving unkindly.</p>
+    <div class="diagram">
+      <div class="box"><span class="t">Jizya Tax</span><span class="s">paid to the state</span></div>
+      <span class="arrow">⇄</span>
+      <div class="box"><span class="t">Protection &amp; Worship</span><span class="s">guaranteed by law</span></div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="curve">
+    <div class="sec-head">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c4-1 6-9 9-9s4 6 9 7"/><circle cx="21" cy="15" r="1.4" fill="currentColor" stroke="none"/></svg>
+      <h2 class="h">The Conversion Curve</h2>
+    </div>
+    <p class="body" style="text-align:center;">Richard Bulliet's quantitative study of conversion — built from biographical dictionaries and the dating of personal names — found the same pattern everywhere, including Iberia: a slow, S-shaped curve stretched across <strong>centuries</strong>, never a spike after conquest.</p>
+    <div class="chart-wrap">
+      <svg viewBox="0 0 560 220">
+        <line x1="40" y1="180" x2="540" y2="180" stroke="#e3dcc8" stroke-width="1"/>
+        <line x1="40" y1="20" x2="40" y2="180" stroke="#e3dcc8" stroke-width="1"/>
+        <path class="curve-path" id="sCurve" d="M40,172 C140,168 200,160 260,120 C320,72 360,40 460,28 C490,25 520,24 540,23"
+          fill="none" stroke="#5b0a16" stroke-width="3"/>
+        <circle cx="60" cy="171" r="4" fill="#b6862c"/>
+        <text x="60" y="198" font-family="Inter" font-size="11" fill="#6b6258" text-anchor="middle">713</text>
+        <circle cx="460" cy="28" r="4" fill="#b6862c"/>
+        <text x="460" y="14" font-family="Inter" font-size="11" fill="#6b6258" text-anchor="middle">~1000–1050</text>
+        <text x="14" y="28" font-family="Inter" font-size="10" fill="#6b6258">High</text>
+        <text x="14" y="184" font-family="Inter" font-size="10" fill="#6b6258">Low</text>
+      </svg>
+      <div class="chart-caption">Illustrative curve of Muslim population share over time, after Bulliet (1979)</div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <h2 class="h" style="margin-bottom:22px;">The Myth vs. The Record</h2>
+    <table class="mvr">
+      <tr><th>You were told</th><th>The record shows</th></tr>
+      <tr><td>"Conquered by the sword"</td><td>7,000 men. Treaties, not massacres.</td></tr>
+      <tr><td>"Forced mass conversion"</td><td>300+ years before Muslims were a majority.</td></tr>
+      <tr><td>"Religious erasure"</td><td>Churches, bishops, rabbinical courts — intact for generations.</td></tr>
+      <tr><td>"A backward regime"</td><td>400,000 books in one library; surgery taught in Europe for 5 centuries.</td></tr>
+    </table>
+  </section>
+
+  <section class="section reveal" id="timeline">
+    <h2 class="h" style="margin-bottom:26px;">Eight Centuries, Six Moments</h2>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg></span>
+        <span class="tl-year">711</span><span class="tl-text"><strong>Conquest.</strong> Roderic falls; most cities choose terms over war.</span></div>
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="4" width="14" height="16" rx="1"/><path d="M8 9h8M8 13h8"/></svg></span>
+        <span class="tl-year">713</span><span class="tl-text"><strong>Treaty of Tudmīr.</strong> Churches and faith stay intact — for tribute.</span></div>
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c2 3 4 5 4 8a4 4 0 0 1-8 0c0-3 2-5 4-8Z"/></svg></span>
+        <span class="tl-year">9th c.</span><span class="tl-text"><strong>Córdoba incidents.</strong> Blasphemy prosecutions, not persecution.</span></div>
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="9" r="3"/><circle cx="16" cy="11" r="2.4"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M14 20c0-2.4 2-4 5-4"/></svg></span>
+        <span class="tl-year">10–11th c.</span><span class="tl-text"><strong>Muslim majority reached.</strong> Three centuries late for coercion to explain.</span></div>
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v13c-3-1.5-6-1.5-9 0-3-1.5-6-1.5-9 0Z M12 5v13"/></svg></span>
+        <span class="tl-year">12th c.</span><span class="tl-text"><strong>Toledo translates.</strong> Al-Andalus's science reaches Paris, Bologna, Oxford.</span></div>
+      <div class="tl-item"><span class="tl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 4a8 8 0 1 0 0 16 6.5 6.5 0 0 1 0-16Z"/></svg></span>
+        <span class="tl-year">1492</span><span class="tl-text"><strong>Granada falls.</strong> Eight centuries end; the scientific legacy doesn't.</span></div>
+    </div>
+  </section>
+
+  <section class="section reveal">
+    <h2 class="h" style="margin-bottom:6px;">Two Libraries, One Gap</h2>
+    <p class="body" style="text-align:center;">While Europe's largest monastic libraries held a few hundred volumes, the Caliphal Library of Córdoba under al-Hakam II is said to have held over 400,000.</p>
+    <div class="bars">
+      <div class="bar-col"><div class="bar" id="bar1" data-h="150"></div><span class="bv">400,000</span><span class="bl">Córdoba</span></div>
+      <div class="bar-col"><div class="bar" id="bar2" data-h="2"></div><span class="bv">~Few hundred</span><span class="bl">Largest European library</span></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="pq-band">
+  <div class="wrap">
+    <div class="rule"></div>
+    <p class="reveal">An empire that needed to force conversion would not have waited three centuries for it to happen on its own.</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="section reveal" id="science">
+    <div class="sec-head">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v13c-3-1.5-6-1.5-9 0-3-1.5-6-1.5-9 0Z M12 5v13"/></svg>
+      <h2 class="h">What al-Andalus Gave Europe</h2>
+    </div>
+    <div class="scholars">
+      <div class="scholar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+        <span class="dom">Surgery</span><h3>Al-Zahrawi</h3>
+        <p>30-volume surgical encyclopedia. Standard in European universities for 500+ years.</p>
+      </div>
+      <div class="scholar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="3.4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>
+        <span class="dom">Astronomy</span><h3>Al-Zarqali</h3>
+        <p>The Toledan Tables — Europe's observatories relied on them for a century.</p>
+      </div>
+      <div class="scholar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z"/></svg>
+        <span class="dom">Philosophy</span><h3>Maimonides</h3>
+        <p>Bridged Aristotelian logic with scholastic theology, born and raised in Córdoba.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+  <section class="section reveal" id="sources">
+    <div class="sec-head">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
+      <h2 class="h">Sources</h2>
+    </div>
+    <p class="body" style="text-align:center;">16 works cited throughout this paper, spanning primary chronicles, quantitative historiography, and the history of science.</p>
+    <div class="src-list">
+      <div class="src-item">Al-Zahrawi, A. Q. (ca. 1000). <em>Kitab al-Tasrif li-man 'ajiza 'an al-ta'lif.</em></div>
+      <div class="src-item">Bulliet, R. W. (1979). <em>Conversion to Islam in the Medieval Period.</em> Harvard UP.</div>
+      <div class="src-item">König, D. G. (2020). 713: The Treaty of Tudmīr. <em>Transmediterranean History, 2</em>(1).</div>
+      <div class="src-item">Al Aloul, A. (2026). Al-Zahrawi surgical instruments and techniques. <em>Medicine and Pharmacy Reports.</em></div>
+      <div class="src-item">Arvide Cambra, L. M. (2007). Abu Al Qasim Al Zahrawi (Albucasis). <em>Annals of Vascular Surgery.</em></div>
+      <div class="src-item">Pormann, P. E., &amp; Savage-Smith, E. (2007). <em>Medieval Islamic Medicine.</em> Edinburgh UP.</div>
+      <div class="src-item">Comes, M. (2013). The Toledan Tables. <em>Encyclopaedia of Islam, THREE.</em> Brill.</div>
+      <div class="src-item">Samsó, J. (1992). <em>Las Ciencias de los Antiguos en al-Andalus.</em> Mapfre.</div>
+      <div class="src-item">Glick, T. F. (2005). <em>Islamic and Christian Spain in the Early Middle Ages.</em> Brill.</div>
+      <div class="src-item">Catlos, B. A. (2018). <em>Kingdoms of Faith: A New History of Islamic Spain.</em> Basic Books.</div>
+      <div class="src-item">Fletcher, R. (1992). <em>Moorish Spain.</em> University of California Press.</div>
+      <div class="src-item">Kennedy, H. (1996). <em>Muslim Spain and Portugal.</em> Longman.</div>
+      <div class="src-item">Coope, J. A. (1995). <em>The Martyrs of Córdoba.</em> University of Nebraska Press.</div>
+      <div class="src-item">Menocal, M. R. (2002). <em>The Ornament of the World.</em> Little, Brown and Company.</div>
+      <div class="src-item">Saliba, G. (2007). <em>Islamic Science and the Making of the European Renaissance.</em> MIT Press.</div>
+      <div class="src-item">Wasserstein, D. J. (1985). <em>The Rise and Fall of the Party-Kings.</em> Princeton UP.</div>
+    </div>
+  </section>
+</div>
+
+<div class="closing">
+  <div class="wrap">
+    <p class="big reveal">Eight centuries. Not one forced conversion needed to survive them.</p>
+    <a class="btn" href="empire-never-forced-faith.pdf" download>Download the Full Paper (PDF)</a>
+    <p class="fine">16 sources cited. Full bibliography inside.</p>
+  </div>
+</div>
+
+<footer>Motaz Elmashaleh · Independent Research · 2026</footer>
+
+<script>
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function updateProgress(){
+    var h = document.documentElement;
+    var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    document.getElementById('progress').style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress);
+  updateProgress();
+
+  (function(){
+    var arch = document.getElementById('archWrap');
+    if (arch && window.matchMedia('(pointer: fine)').matches && !reduce){
+      document.addEventListener('mousemove', function(e){
+        var x = (e.clientX/window.innerWidth - 0.5) * 10;
+        var y = (e.clientY/window.innerHeight - 0.5) * 8;
+        arch.style.transform = 'translate('+x+'px,'+y+'px)';
+      });
+    }
+  })();
+
+  (function(){
+    var dots = document.querySelectorAll('.city-dot');
+    var tip = document.getElementById('cityTip');
+    if (!tip) return;
+    var defaultTxt = tip.textContent;
+    dots.forEach(function(d){
+      d.addEventListener('mouseenter', function(){ tip.textContent = d.getAttribute('data-tip'); tip.classList.add('show'); });
+      d.addEventListener('mouseleave', function(){ tip.classList.remove('show'); });
+      d.addEventListener('click', function(){ tip.textContent = d.getAttribute('data-tip'); tip.classList.add('show'); });
+    });
+  })();
+
+  var revealEls = document.querySelectorAll('.reveal');
+  var curve = document.getElementById('sCurve');
+  var bars = document.querySelectorAll('.bar');
+  var donut = document.querySelector('.donut-ring');
+
+  if (reduce){
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+    if(curve) curve.classList.add('in');
+    bars.forEach(function(b){ b.style.height = b.getAttribute('data-h')+'px'; });
+    if(donut) donut.classList.add('in');
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ io.observe(el); });
+
+    var ioCurve = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ioCurve.unobserve(e.target);} });
+    }, {threshold:0.3});
+    if (curve) ioCurve.observe(curve);
+
+    var ioBar = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.style.height = e.target.getAttribute('data-h')+'px'; ioBar.unobserve(e.target); } });
+    }, {threshold:0.4});
+    bars.forEach(function(b){ ioBar.observe(b); });
+
+    if (donut){
+      var ioDonut = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ioDonut.unobserve(e.target);} });
+      }, {threshold:0.4});
+      ioDonut.observe(donut);
+    }
+  }
+</script>
+
+</body>
+</html>
